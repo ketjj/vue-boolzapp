@@ -57,7 +57,7 @@
 
                 <!-- CICLO OGGETTI -->
                 <div class="sidebar">
-                    <div v-for="(message, index) in messages" class="avatar_message">
+                    <div v-for="(message, index) in messageList" class="avatar_message" @click="selectCurrentMessage(index)">
                         <img :src="`img/avatar${message.avatar}.jpg`" alt="">
     
                         <div class="message_info">
@@ -85,11 +85,46 @@
             <div class="right">
                 <!-- dinamico avatar, nome -->
                 <div class="avatar_window">                   
-                    <img src="img/avatar_1.jpg" alt="">
+                    <img :src="`img/avatar${messageList[messageActive].avatar}.jpg`" alt="">
+
+                    <div class="message_chatinfo">
+                        <div class="nome_messagio">
+                            <span>{{messageList[messageActive].name}}</span>
+                            <span class="ultimo_messagio">Ultimo accesso oggi alle 20:00</span>
+                        </div>
+
+                        <div class="chat_icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAT -->
+                
+                <div class="main_chat">
+
+
+                    <div class="received box">
+                        <div>Hello!</div>
+                        <div class="sent_time">15:30</div>
+                    </div>
+
+                    <div class="sent box">
+                        <div>Hello!</div>
+                        <div class="sent_time">15:30</div>
+                    </div>
 
                 </div>
-                <div class="main_chat"></div>
-                <div class="input_message"></div>
+
+
+                <div class="input_message">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <input type="text" placeholder=" Scrivi un messaggio">  
+                      <!-- @keyup.enter="#" -->
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
             </div>
             <!-- /right container-->
 
@@ -99,7 +134,7 @@
        
     </div>
 
-    <script src="js/contacts-boolzapp.js"></script>
+
     <script src="js/script.js"></script>
 </body>
 </html>

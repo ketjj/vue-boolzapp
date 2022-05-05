@@ -20,7 +20,7 @@
 
         <div class="k_container">
             <!-- left container-->
-            <div class="left debug">
+            <div class="left">
                 <div class="avatar_window">
 
                     <div class="avatar_text">
@@ -55,25 +55,28 @@
 
                 </div>
 
-                <!-- CIclare -->
-                <div class="avatar_message">
-                    <img src="img/avatar_1.jpg" alt="">
-
-                    <div class="message_info">
-
-                        <div class="nome_messagio">
-                            <span>Michele</span>
-                            <span class="ultimo_messagio">Ultimo messaggio Inviato</span>
+                <!-- CICLO OGGETTI -->
+                <div class="sidebar">
+                    <div v-for="(message, index) in messages" class="avatar_message">
+                        <img :src="`img/avatar${message.avatar}.jpg`" alt="">
+    
+                        <div class="message_info">
+    
+                            <div class="nome_messagio">
+                                <span>{{message.name}}</span>
+                                <span class="ultimo_messagio">Ultimo messaggio Inviato</span>
+                            </div>
+    
+                            <div class="time_invio">12:00</div>
+    
+                            <!-- input time? -->
                         </div>
-
-                        <div class="time_invio">12:00</div>
-
-                        <!-- input time? -->
                     </div>
+
                 </div>
 
-
-
+                <!-- /CICLO OGGETTI -->
+                <div class="separate"></div>
             </div>
             <!-- /left container-->
 
@@ -81,8 +84,7 @@
             <!-- right container-->
             <div class="right">
                 <!-- dinamico avatar, nome -->
-                <div class="avatar_window">
-                    
+                <div class="avatar_window">                   
                     <img src="img/avatar_1.jpg" alt="">
 
                 </div>

@@ -63,7 +63,10 @@ body{
   color: #b1b1b1;
   margin-right: 10px;
 }
-
+.sidebar{
+  overflow:auto;
+  max-height: calc(100% - 220px)
+}
 
 /* 
 LEFT part 
@@ -171,7 +174,10 @@ RIGHT part
   height: 55px;
   background-color: #eaeaea;
 }
-
+.separate{
+  height:55px;
+  background-color: white;
+}
 
 
 

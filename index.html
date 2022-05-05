@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>ToDoList</title>
+</head>
+<body>
+    <div class="green_line"></div> 
+
+    <div id="app">
+
+
+        <div class="k_container">
+            <!-- left container-->
+            <div class="left debug">
+                <div class="avatar_window">
+
+                    <div class="avatar_text">
+                        <img src="img/avatar_io.jpg" alt="">
+                        <span>Sofia</span>
+                    </div>
+
+                    <div class="avatar_icons">
+
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+
+                <!-- Filtrate -->
+
+                <div class="notification_status">
+                    <div class="bell">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="notifiche_text">
+                        <div>Ricevi notifiche di nuovi messagi</div>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                    
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+
+                </div>
+
+                <!-- CIclare -->
+                <div class="avatar_message">
+                    <img src="img/avatar_1.jpg" alt="">
+
+                    <div class="message_info">
+
+                        <div class="nome_messagio">
+                            <span>Michele</span>
+                            <span class="ultimo_messagio">Ultimo messaggio Inviato</span>
+                        </div>
+
+                        <div class="time_invio">12:00</div>
+
+                        <!-- input time? -->
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /left container-->
+
+
+            <!-- right container-->
+            <div class="right">
+                <!-- dinamico avatar, nome -->
+                <div class="avatar_window">
+                    
+                    <img src="img/avatar_1.jpg" alt="">
+
+                </div>
+                <div class="main_chat"></div>
+                <div class="input_message"></div>
+            </div>
+            <!-- /right container-->
+
+        </div>
+      
+
+       
+    </div>
+
+    <script src="js/contacts-boolzapp.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -217,9 +217,9 @@ RIGHT part
 .main_chat{
   padding: 5% 10% 0% 10%;
   min-height:200px;
-  display: flex;
-  flex-direction: column;
+  
 }
+
 .box{
   border-radius: 10px;
   padding: 10px 5px 5px 15px;
@@ -233,7 +233,7 @@ RIGHT part
 
 .sent{
   background-color: #d5f9ba;
-  align-self: flex-end;
+  margin-left: 50%;
   min-width: 280px;
 
 }
@@ -241,6 +241,7 @@ RIGHT part
   text-align:right;
   font-size:10px;
   color: #b1b1b1;
+  margin-top: 10px;
 }
 
 
@@ -261,6 +262,9 @@ RIGHT part
   .k_container {
     width: calc(100% - 200px);
   }
+  .sent{
+    margin-left: 40%;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -270,6 +274,13 @@ RIGHT part
   .avatar_text span{
     font-size: 14px;
     margin-left: 0;
+  }
+  .message_info{
+    margin-left: 0;
+  }
+
+  .sent{
+    margin-left: 20%;
   }
 }
 @media screen and (max-width: 650px){
@@ -281,14 +292,28 @@ RIGHT part
     font-size: 14px;
   }
 
+  .notifiche_text{
+    font-size: 12px;
+  }
+  .sent{
+    margin-left: 0;
+  }
 
 }
-
 
 @media screen and (max-width: 424){
   .k_container {
     width: calc(100% - 100px);
   }
-  
+  .message_info,
+  .search input,
+  .notifiche_text{
+    display: none;
+  }
+
+  .left{
+    width: 100px;
+  }
+
 
 }

@@ -167,7 +167,17 @@ const app = new Vue ({
           }
       
       ],
+
+      myavatar: {
+        name: 'Sofia',
+        avatar: '_io',
+        visible: true,
+      },
+
+      
       messageActive: 0,
+      inputMessage: '',
+ 
 
 
   },
@@ -176,8 +186,47 @@ const app = new Vue ({
 
     selectCurrentMessage(index){
       this.messageActive = index;
-    }
+    },
+
+
+    addNewMessage(){
+      if (this.inputMessage.length > 0)
+      {
+
+      const addMessageToSend = 
+              {
+                  date: '10/01/2020 15:30:55',
+                  message: this.inputMessage,
+                  status: 'sent'
+              }     
+          
+      
+  
+      this.messageList[this.messageActive].messages.push(addMessageToSend);
+      
+      setTimeout(this.addAutoMessage, 2000);
+
+      this.inputMessage = '';      
+
+      }
+
+
+  },
+
+  addAutoMessage(){
+    const addMessageToSendAuto = 
+    {
+        date: '10/01/2020 15:30:55',
+        message: 'ok',
+        status: 'received'
+    }     
+
+    this.messageList[this.messageActive].messages.push(addMessageToSendAuto);    
+
   }
+
+  },
+
 
 })
 

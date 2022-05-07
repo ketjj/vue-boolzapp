@@ -19,13 +19,15 @@
 
 
         <div class="k_container">
-            <!-- left container-->
+            <!-- LEFT ASIDDE CONTAINER-->
             <div class="left">
+               <!-- LEFT HEADER -->
                 <div class="avatar_window">
 
                     <div class="avatar_text">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <span>Sofia</span>
+                  
+                        <img :src="`img/avatar${myavatar.avatar}.jpg`" alt="">
+                        <span>{{myavatar.name}}</span>
                     </div>
 
                     <div class="avatar_icons">
@@ -49,6 +51,7 @@
                     </div>
                     
                 </div>
+                <!-- SEARCH BAR -->
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
@@ -64,7 +67,7 @@
     
                             <div class="nome_messagio">
                                 <span>{{message.name}}</span>
-                                <span class="ultimo_messagio">Ultimo messaggio Inviato</span>
+                                <span class="ultimo_messagio">{{message.messages[message.messages.length - 1].message}}</span>
                             </div>
     
                             <div class="time_invio">12:00</div>
@@ -81,7 +84,7 @@
             <!-- /left container-->
 
 
-            <!-- right container-->
+            <!-- RIGHT CHAT CONTAINER-->
             <div class="right">
                 <!-- dinamico avatar, nome -->
                 <div class="avatar_window">                   
@@ -119,7 +122,8 @@
 
                 <div class="input_message">
                     <i class="fa-solid fa-face-smile"></i>
-                    <input type="text" placeholder=" Scrivi un messaggio">  
+                    <input v-model.trim="inputMessage"
+                    @keyUp.enter="addNewMessage" id="addmsg" type="text" placeholder=" Scrivi un messaggio">  
                       <!-- @keyup.enter="#" -->
                     <i class="fa-solid fa-microphone"></i>
                 </div>

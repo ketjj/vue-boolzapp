@@ -4,36 +4,34 @@
   box-sizing: border-box;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 
 body{
-  position: relative;
-  background-color: #dddbd2;
-  height: 100vh;
+  background: linear-gradient(#009688 15%, #d9dbd4 0%);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.green_line{
-  background-color: #009688;
-  height: calc(100vh - 85%);
-}
 
 .k_container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  display: flex;
   width: calc(100% - 350px);
-  height: calc(100% - 50px);
-  margin: 25px 0;
+  height: 93vh;
+  margin: 3vh auto;
 }
 .left {
+  float: left;
   width: calc(100% - 65%);
   height: 100%;
   background-color: white;
 }
 .right {
   width: calc(100% - 35%);
+  float: left;
+  height: 100%;
 }
 
 .avatar_window{
@@ -223,18 +221,23 @@ RIGHT part
 .box{
   border-radius: 10px;
   padding: 10px 5px 5px 15px;
-  max-width: 280px;
+  min-width: 200px;
+  max-width: 300px;
   margin-top: 10px;
   min-height:40px;
+  clear: both;
 }
 .received{
+  float: left;
+  
   background-color: white;
 }
 
 .sent{
+  float: right;
   background-color: #d5f9ba;
-  margin-left: 50%;
-  min-width: 280px;
+  min-width: 200px;
+  max-width: 300px;
 
 }
 .sent_time{

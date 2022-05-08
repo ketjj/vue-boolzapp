@@ -62,7 +62,8 @@
 
                 <!-- CICLO OGGETT0 (AVATAR) -->
                 <div class="sidebar">
-                    <div v-for="(message, index) in messageList" class="avatar_message" :class="message.name.toLowerCase().includes(searchFriend.toLowerCase()) ? 'visible' : 'invisible'">
+                    <div v-for="(message, index) in messageList" class="avatar_message" :class="message.name.toLowerCase().includes(searchFriend.toLowerCase()) ? 'visible' : 'invisible'"
+                    @click="selectCurrentMessage(index)">
                         <img :src="`img/avatar${message.avatar}.jpg`" alt="">
     
                         <div class="message_info">
@@ -113,7 +114,11 @@
     
     
                          <div :class="`${element.status} box`">
-                            <div>{{element.message}}</div>
+                            <div>{{element.message}}
+
+                                <i class="fa-solid fa-chevron-down invisible"></i>
+                                <!-- MOUSEOVER -->
+                            </div>
                             <div class="sent_time">{{element.date}}</div>
                         </div>
                     </div>

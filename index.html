@@ -73,7 +73,7 @@
                                 <span class="ultimo_messagio">{{message.messages[message.messages.length - 1].message}}</span>
                             </div>
     
-                            <div class="time_invio">12:00</div>
+                            <div class="time_invio">{{message.messages[message.messages.length - 1].date.substring(10, 16)}}</div>
     
                             <!-- input time? -->
                         </div>
@@ -96,7 +96,7 @@
                     <div class="message_chatinfo">
                         <div class="nome_messagio">
                             <span>{{messageList[messageActive].name}}</span>
-                            <span class="ultimo_messagio">Ultimo accesso oggi alle 20:00</span>
+                            <span class="ultimo_messagio">Ultimo accesso oggi alle {{messageList[messageActive].messages[messageList[messageActive].messages.length - 1].date.substring(10, 16)}}</span>
                         </div>
 
                         <div class="chat_icons">
@@ -116,10 +116,10 @@
                          <div :class="`${element.status} box`">
                             <div>{{element.message}}
 
-                                <i class="fa-solid fa-chevron-down invisible"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
                                 <!-- MOUSEOVER -->
                             </div>
-                            <div class="sent_time">{{element.date}}</div>
+                            <div class="sent_time">{{element.date.substring(10, 16)}}</div>
                         </div>
                     </div>
                     

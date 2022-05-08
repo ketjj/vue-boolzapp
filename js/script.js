@@ -178,7 +178,6 @@ const app = new Vue ({
       messageActive: 0,
       inputMessage: '',
       searchFriend: '',
-      filteredList: []
 
 
   },
@@ -196,22 +195,26 @@ const app = new Vue ({
     // Aggiungere un nuovo messaggio all'array
 
     addNewMessage(){
+
+      const currentDayTime = this.getDateTime();
+
       if (this.inputMessage.length > 0)
       {
 
       const addMessageToSend = 
               {
-                  date: '10/01/2020 15:30:55',
+                  date: currentDayTime,
                   message: this.inputMessage,
                   status: 'sent'
               }     
           
       
       this.messageList[this.messageActive].messages.push(addMessageToSend);
+  
 
       //All'inserimeto del messaggio dopo un secondo apparirà una risposta
       
-      setTimeout(this.addAutoMessage, 2000);
+      setTimeout(this.addAutoMessage, 1000);
 
       this.inputMessage = '';      
 
@@ -223,16 +226,42 @@ const app = new Vue ({
   //Genereare una risposta auto
 
   addAutoMessage(){
+
+    const currentDayTime = this.getDateTime();
+
     const addMessageToSendAuto = 
     {
-        date: '10/01/2020 15:30:55',
+        date: currentDayTime,
         message: 'ok',
         status: 'received'
     }     
 
-    this.messageList[this.messageActive].messages.push(addMessageToSendAuto);    
+    this.messageList[this.messageActive].messages.push(addMessageToSendAuto); 
+    
 
   },
+   
+  //Date Function
+
+  getDateTime() {
+    let today = new Date();
+    
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+
+    let hours = String(today.getHours()).padStart(2, '0');
+    let minutes = String(today.getMinutes()).padStart(2, '0');
+    let seconds = String(today.getSeconds()).padStart(2, '0');
+
+    let time = hours + ":" + minutes + ":" + seconds; 
+    let currentDateTime = mm + '/' + dd + '/' + yyyy +' '+ time;
+
+    return currentDateTime;
+
+}
+
+
 
 //   searchSomeone() {
 //     let input = this.searchFriend;

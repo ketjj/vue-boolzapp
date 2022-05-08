@@ -54,13 +54,15 @@
                 <!-- SEARCH BAR -->
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="searchFriend"
+                     @keyUp.enter="searchSomeone()" type="text" 
+                     placeholder="Cerca o inizia una nuova chat">
 
                 </div>
 
-                <!-- CICLO OGGETTI -->
+                <!-- CICLO OGGETT0 (AVATAR) -->
                 <div class="sidebar">
-                    <div v-for="(message, index) in messageList" class="avatar_message" @click="selectCurrentMessage(index)">
+                    <div v-for="(message, index) in messageList" class="avatar_message" :class="message.name.toLowerCase().includes(searchFriend.toLowerCase()) ? 'visible' : 'invisible'">
                         <img :src="`img/avatar${message.avatar}.jpg`" alt="">
     
                         <div class="message_info">
@@ -79,7 +81,7 @@
                 </div>
 
                 <!-- /CICLO OGGETTI -->
-                <div class="separate"></div>
+      
             </div>
             <!-- /left container-->
 

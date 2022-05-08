@@ -177,17 +177,23 @@ const app = new Vue ({
       
       messageActive: 0,
       inputMessage: '',
- 
+      searchFriend: '',
+      filteredList: []
 
 
   },
 
   methods:{
 
+    //Assegnare all'indice un variabile
+
     selectCurrentMessage(index){
       this.messageActive = index;
     },
 
+
+
+    // Aggiungere un nuovo messaggio all'array
 
     addNewMessage(){
       if (this.inputMessage.length > 0)
@@ -201,8 +207,9 @@ const app = new Vue ({
               }     
           
       
-  
       this.messageList[this.messageActive].messages.push(addMessageToSend);
+
+      //All'inserimeto del messaggio dopo un secondo apparirà una risposta
       
       setTimeout(this.addAutoMessage, 2000);
 
@@ -212,6 +219,8 @@ const app = new Vue ({
 
 
   },
+
+  //Genereare una risposta auto
 
   addAutoMessage(){
     const addMessageToSendAuto = 
@@ -223,11 +232,36 @@ const app = new Vue ({
 
     this.messageList[this.messageActive].messages.push(addMessageToSendAuto);    
 
-  }
+  },
+
+//   searchSomeone() {
+//     let input = this.searchFriend;
+//     //console.log(input);
+//     input = input.toLowerCase();
+
+//     filteredList = this.messageList.filter((element) =>{
+//         //console.log(element.name);
+//         //console.log(element.name.includes(input));
+//         return element.name.toLowerCase().includes(input);
+//     });
+
+//     console.log(filteredList);
+
+//    //this.messageList=x;
+    
+//     }
+
+
+  //Filtrare l'array con il Search
+//   searchSomeone(){
+//     this.messageList.filter((element) => {this.name}) 
+//     console.log(this.searchFriend)
+//    }
 
   },
 
-
+  
+  
 })
 
 

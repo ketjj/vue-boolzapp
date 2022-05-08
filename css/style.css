@@ -25,7 +25,7 @@ body{
 .left {
   float: left;
   width: calc(100% - 65%);
-  height: 100%;
+  /* height: 100%; */
   background-color: white;
 }
 .right {
@@ -63,7 +63,8 @@ body{
 }
 .sidebar{
   overflow:auto;
-  max-height: calc(100% - 200px)
+  max-height: 506px;
+  min-height: 506px;
 }
 
 /* 
@@ -123,9 +124,9 @@ LEFT part
 }
 
 .search i {
-  padding: 5px 25px;
+  padding: 6px 25px;
   background-color: white;
-  cursor: pointer;
+
 }
 .fa-magnifying-glass{
   color: #d8d8d8;
@@ -173,10 +174,7 @@ RIGHT part
   height: 55px;
   background-color: #f3eeea;
 }
-.separate{
-  height:20px;
-  background-color: white;
-}
+
 .chat_icons i {
   font-size: 20px;
   color:#b1b1b1;
@@ -221,24 +219,22 @@ RIGHT part
 .box{
   border-radius: 10px;
   padding: 10px 5px 5px 15px;
-  min-width: 200px;
-  max-width: 300px;
   margin-top: 10px;
   min-height:40px;
   clear: both;
 }
 .received{
   float: left;
-  
   background-color: white;
+  min-width: 250px;
+  max-width: 300px;
 }
 
 .sent{
   float: right;
   background-color: #d5f9ba;
-  min-width: 200px;
+  min-width: 250px;
   max-width: 300px;
-
 }
 .sent_time{
   text-align:right;
@@ -246,8 +242,19 @@ RIGHT part
   color: #b1b1b1;
   margin-top: 10px;
 }
+.input_message input:focus-visible{
+  outline: 1px auto rgb(211, 209, 209);
+}
 
 
+.visible{
+  display: block;
+  display: flex;
+}
+
+.invisible{
+  display: none;
+}
 
 
 /*

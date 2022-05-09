@@ -196,14 +196,12 @@ const app = new Vue ({
 
     addNewMessage(){
 
-      const currentDayTime = this.getDateTime();
-
       if (this.inputMessage.length > 0)
       {
 
       const addMessageToSend = 
               {
-                  date: currentDayTime,
+                  date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                   message: this.inputMessage,
                   status: 'sent'
               }     
@@ -220,73 +218,25 @@ const app = new Vue ({
 
       }
 
-
   },
 
   //Genereare una risposta auto
 
   addAutoMessage(){
 
-    const currentDayTime = this.getDateTime();
-
     const addMessageToSendAuto = 
     {
-        date: currentDayTime,
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: 'ok',
         status: 'received'
-    }     
+    };
+    
 
     this.messageList[this.messageActive].messages.push(addMessageToSendAuto); 
     
 
   },
    
-  //Date Function
-
-  getDateTime() {
-    let today = new Date();
-    
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0');
-    let yyyy = today.getFullYear();
-
-    let hours = String(today.getHours()).padStart(2, '0');
-    let minutes = String(today.getMinutes()).padStart(2, '0');
-    let seconds = String(today.getSeconds()).padStart(2, '0');
-
-    let time = hours + ":" + minutes + ":" + seconds; 
-    let currentDateTime = mm + '/' + dd + '/' + yyyy +' '+ time;
-
-    return currentDateTime;
-
-}
-
-
-
-//   searchSomeone() {
-//     let input = this.searchFriend;
-//     //console.log(input);
-//     input = input.toLowerCase();
-
-//     filteredList = this.messageList.filter((element) =>{
-//         //console.log(element.name);
-//         //console.log(element.name.includes(input));
-//         return element.name.toLowerCase().includes(input);
-//     });
-
-//     console.log(filteredList);
-
-//    //this.messageList=x;
-    
-//     }
-
-
-  //Filtrare l'array con il Search
-//   searchSomeone(){
-//     this.messageList.filter((element) => {this.name}) 
-//     console.log(this.searchFriend)
-//    }
-
   },
 
   

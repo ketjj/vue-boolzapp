@@ -174,10 +174,19 @@ const app = new Vue ({
         visible: true,
       },
 
+      randomAnswers: [
+          'ok',
+          'assolutamente si!',
+          'ti faccio sapere',
+          'penso di no',
+          'mi spiace'
+      ],
+
       
       messageActive: 0,
       inputMessage: '',
       searchFriend: '',
+      chevronVisible: false,
 
 
   },
@@ -227,7 +236,7 @@ const app = new Vue ({
     const addMessageToSendAuto = 
     {
         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-        message: 'ok',
+        message: this.randomAnswers[this.getRandomAnswers(0, this.randomAnswers.length - 1)],
         status: 'received'
     };
     
@@ -236,8 +245,13 @@ const app = new Vue ({
     
 
   },
+  
+  getRandomAnswers(min, max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
    
   },
+
 
   
   

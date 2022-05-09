@@ -228,15 +228,15 @@ RIGHT part
 .received{
   float: left;
   background-color: white;
-  min-width: 250px;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 320px;
 }
 
 .sent{
   float: right;
   background-color: #d5f9ba;
-  min-width: 250px;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 320px;
 }
 .sent_time{
   text-align:right;
@@ -249,22 +249,46 @@ RIGHT part
 }
 
 
-.visible{
+/* .visible{
   display: block;
   display: flex;
-}
+} */
 
-.invisible{
+/* .invisible{
   display: none;
-}
+} */
 
 .fa-chevron-down{
   float: right;
+  margin: -15px 5px;
   color:#cdcdcd;
   font-size: 12px;
-  margin-top: 4px;
-  margin-right: 3px;
+
 }
+
+.message-sentReceived{
+  position: relative;
+  cursor: pointer;
+  max-width: 280px;
+}
+
+.dropdown-options ul li {
+  list-style: none;
+  padding: 7px;
+  cursor: default;
+}
+.dropdown-options ul li:hover {
+  background-color: #fbbebe;
+}
+
+.dropdown-options{
+  position: absolute;
+  top: 30px;
+  left: 75px; 
+  z-index: 999; 
+  background-color: white;
+}
+
 /*
  MEDIA QUERIES 
  */

@@ -2,7 +2,7 @@ const app = new Vue ({
   el: '#app',
 
   data: {
-      messageList: [
+    profiles: [
           {
               name: 'Michele',
               avatar: '_1',
@@ -11,7 +11,8 @@ const app = new Vue ({
                   {
                       date: '10/01/2020 15:30:55',
                       message: 'Hai portato a spasso il cane?',
-                      status: 'sent'
+                      status: 'sent',
+                      menuVisible: false,
                   },
                   {
                       date: '10/01/2020 15:50:00',
@@ -179,14 +180,17 @@ const app = new Vue ({
           'assolutamente si!',
           'ti faccio sapere',
           'penso di no',
-          'mi spiace'
+          'mi spiace',
+          'è andato bene',
+          'forse sono riuscita a farlo'
       ],
 
       
       messageActive: 0,
       inputMessage: '',
       searchFriend: '',
-      chevronVisible: false,
+      invisible: false,
+      indexMessage: 0,
 
 
   },
@@ -216,7 +220,7 @@ const app = new Vue ({
               }     
           
       
-      this.messageList[this.messageActive].messages.push(addMessageToSend);
+      this.profiles[this.messageActive].messages.push(addMessageToSend);
   
 
       //All'inserimeto del messaggio dopo un secondo apparirà una risposta
@@ -240,21 +244,25 @@ const app = new Vue ({
         status: 'received'
     };
     
+    this.profiles[this.messageActive].messages.push(addMessageToSendAuto);    
 
-    this.messageList[this.messageActive].messages.push(addMessageToSendAuto); 
-    
+  },
+
+  deleteCurrentMessage(index){
+
+    this.profiles[this.messageActive].messages.splice(index, 1);
+    //Devi controllare ----> di cancellare anche l'ultimo elemento
 
   },
   
+
   getRandomAnswers(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-   
   },
 
 
-  
-  
+  },
+
 })
 
 

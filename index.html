@@ -70,7 +70,7 @@
 
                 <!-- CICLO OGGETT0 (AVATAR) -->
                 <div class="sidebar">
-                    <div v-for="(message, index) in messageList" class="avatar_message" :class="message.name.toLowerCase().includes(searchFriend.toLowerCase()) ? 'visible' : 'invisible'"
+                    <div v-for="(message, index) in profiles" class="avatar_message" :class="message.name.toLowerCase().includes(searchFriend.toLowerCase()) ? 'visible' : 'invisible'"
                     @click="selectCurrentMessage(index)">
                         <img :src="`img/avatar${message.avatar}.jpg`" alt="">
     
@@ -99,12 +99,12 @@
             <div class="right">
                 <!-- dinamico avatar, nome -->
                 <div class="avatar_window">                   
-                    <img :src="`img/avatar${messageList[messageActive].avatar}.jpg`" alt="">
+                    <img :src="`img/avatar${profiles[messageActive].avatar}.jpg`" alt="">
 
                     <div class="message_chatinfo">
                         <div class="nome_messagio">
-                            <span>{{messageList[messageActive].name}}</span>
-                            <span class="ultimo_messagio">Ultimo accesso oggi alle {{messageList[messageActive].messages[messageList[messageActive].messages.length - 1].date.substring(10, 16)}}</span>
+                            <span>{{profiles[messageActive].name}}</span>
+                            <span class="ultimo_messagio">Ultimo accesso oggi alle {{profiles[messageActive].messages[profiles[messageActive].messages.length - 1].date.substring(10, 16)}}</span>
                         </div>
 
                         <div class="chat_icons">
@@ -118,17 +118,23 @@
                 <!-- CHAT -->
                 <div class="main_chat">
 
-                    <div v-for="(element, index) in messageList[messageActive].messages" >
+                    <div v-for="(element, index) in profiles[messageActive].messages" @mouseleave="invisible = false" >    
     
-    
-                         <div :class="`${element.status} box`">
+                         <div :class="`${element.status} box`" class="message-sentReceived">
                             <div>{{element.message}}
                                 
-
-                                <i class="fa-solid fa-chevron-down"
-                                ></i>
-                                <!-- MOUSEOVER -->
                             </div>
+                            <div @click="invisible = !invisible">
+                            <i                            
+                            class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options" v-show="invisible">
+                                <ul>
+                                    <li>Informazione sul messaggio</li>
+                                    <li @click="deleteCurrentMessage(index)"> Cancella il messaggio</li>
+                                </ul>
+                          
+                            </div>                             
                             <div class="sent_time">{{element.date.substring(10, 16)}}</div>
                         </div>
                     </div>              

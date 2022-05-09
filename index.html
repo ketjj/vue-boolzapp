@@ -118,7 +118,7 @@
                 <!-- CHAT -->
                 <div class="main_chat">
 
-                    <div v-for="(element, index) in profiles[messageActive].messages" @mouseleave="menuVisible = false" >    
+                    <div v-for="(element, index) in profiles[messageActive].messages" @mouseleave="element.menuVisible = false" >    
     
                          <div :class="`${element.status} box`" class="message-sentReceived">
                             <div>{{element.message}}</div> 

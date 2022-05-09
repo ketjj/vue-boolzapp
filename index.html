@@ -118,17 +118,16 @@
                 <!-- CHAT -->
                 <div class="main_chat">
 
-                    <div v-for="(element, index) in profiles[messageActive].messages" @mouseleave="invisible = false" >    
+                    <div v-for="(element, index) in profiles[messageActive].messages" @mouseleave="menuVisible = false" >    
     
                          <div :class="`${element.status} box`" class="message-sentReceived">
-                            <div>{{element.message}}
-                                
-                            </div>
-                            <div @click="invisible = !invisible">
-                            <i                            
+                            <div>{{element.message}}</div> 
+                            <div>
+                            <i
+                            @click="element.menuVisible = !element.menuVisible"                            
                             class="fa-solid fa-chevron-down"></i>
                             </div>
-                            <div class="dropdown-options" v-show="invisible">
+                            <div class="dropdown-options" :class="element.menuVisible ? 'visible' : 'invisible'">
                                 <ul>
                                     <li>Informazione sul messaggio</li>
                                     <li @click="deleteCurrentMessage(index)"> Cancella il messaggio</li>
